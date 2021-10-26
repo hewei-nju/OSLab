@@ -1,0 +1,7 @@
+megs: 32
+
+display_library: sdl
+
+floppya: image="a.img", status=inserted
+
+boot: floppy
