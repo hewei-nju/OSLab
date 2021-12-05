@@ -194,11 +194,9 @@ sudo apt-get install bochs-x
 
 ## 4. 实验结果
 
-```html
 <video id="video" controls="" preload="none" poster="fig/fig/example.jpg">
       <source id="mp4" src="video/oslab3.mp4" type="video/mp4">
 </videos>
-```
 
 ## 5. CheckLists
 
