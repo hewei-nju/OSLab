@@ -42,11 +42,19 @@ PUBLIC void task_tty() {
         for (p_tty = TTY_FIRST; p_tty < TTY_END; p_tty++) {
             tty_do_read(p_tty);
             tty_do_write(p_tty);
-
-            // 20s 清屏
-            if (!searchMode && ticks % 20000 == 0) {
-                cleanScreen(p_tty);
-            }
+        }
+                  // 20s 清屏
+        // if (!searchMode && ticks % 5000 == 0) {
+        //     cleanScreen(TTY_FIRST);  // TTY_FIRST -> 我们想要的屏幕
+        // }
+        if (!flag && !searchMode || searchMode) {
+            start_ticks = get_ticks();
+            flag = 1;
+        }
+        // 60
+        if (!searchMode && flag && (get_ticks() - start_ticks) / HZ >= 55) {
+            cleanScreen(TTY_FIRST); 
+            flag = 0;
         }
     }
 }
